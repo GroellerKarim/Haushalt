@@ -1,0 +1,30 @@
+@startuml
+
+class User {
+    id_key: Long
+
+    email: String
+    password: String
+    monthly_income: Float?
+}
+
+class Household {
+    id_key: Long
+    name: String
+
+}
+
+class PaymentType {
+    id_key: Long
+    household_id_key: Long
+
+
+}
+
+class Payment {
+    id: Long
+    household_id: Long (FK Household)
+
+}
+
+@enduml
