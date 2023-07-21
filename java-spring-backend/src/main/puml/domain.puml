@@ -17,6 +17,9 @@ class User_Household <<Entity>>{
     *share_in_household: Float
 }
 
+User "many" -right-* "1" User_Household
+User_Household "1" *-right- "many" Household
+
 class Household <<Entity>>{
     *id_key: UUID
     --
@@ -37,15 +40,29 @@ class Transaction <<Entity>>{
     --
     *amount: Float
     *effect: TransactionEffect
+    *date: LocalDateTime
     image: Blob?
     *classification: TransactionClassification <<FK>>
     *household_id: UUID <<FK>>
 
 }
 
+class Transaction_Household {
+    *household_id: UUID <<FK>>
+    *transaction_id: UUID <<FK>>
+    --
+    *share_in_transaction: Float
+}
+
+Transaction -right- TransactionEffect : > owns
+Transaction "many" -up-* "1" Transaction_Household
+Household "many" --* "1" Transaction_Household
+Transaction  "many" --* "1" TransactionClassification
+
 enum TransactionEffect {
     POSITIVE
     NEGATIVE
 }
+
 
 @enduml
