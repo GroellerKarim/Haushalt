@@ -43,9 +43,10 @@ class Transaction <<Entity>>{
     *effect: TransactionEffect
     *date: LocalDateTime
     bill_image: Blob?
+    *transaction_date: LocalDateTime
+    *payed_by: User <<FK>>
     *classification: TransactionClassification <<FK>>
     *household_id: UUID <<FK>>
-    *transaction_date: LocalDateTime
 }
 
 class Transaction_Household {
@@ -55,6 +56,7 @@ class Transaction_Household {
     *share_in_transaction: Float
 }
 
+User "1" -down-* "many" Transaction
 Transaction -right- TransactionEffect : > owns
 Transaction "many" -up-* "1" Transaction_Household
 Household "many" --* "1" Transaction_Household
