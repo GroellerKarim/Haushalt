@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>eu.groeller</groupId>
-    <artifactId>java-spring-backend</artifactId>
+    <artifactId>haushalt-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>java-spring-backend</name>
-    <description>java-spring-backend</description>
+    <name>haushalt-backend</name>
+    <description>haushalt-backend</description>
     <properties>
         <java.version>20</java.version>
     </properties>

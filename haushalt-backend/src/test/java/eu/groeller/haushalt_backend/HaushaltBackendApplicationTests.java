@@ -1,10 +1,10 @@
-package eu.groeller.javaaspringbackend;
+package eu.groeller.haushalt_backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaSpringBackendApplicationTests {
+class HaushaltBackendApplicationTests {
 
     @Test
     void contextLoads() {
