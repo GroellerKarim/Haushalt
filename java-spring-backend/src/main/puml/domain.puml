@@ -5,8 +5,9 @@ class User <<Entity>> {
     --
     *email: String
     *password: String
+    *current_month_expenses: Float
     monthly_income: Float
-    *monthly_expense: Float
+    current_month_balance: Float
 }
 
 class User_Household <<Entity>>{
@@ -15,6 +16,7 @@ class User_Household <<Entity>>{
     --
     *user_is_admin: Boolean
     *share_in_household: Float
+    *joined_at: LocalDateTime
 }
 
 User "many" -right-* "1" User_Household
@@ -32,7 +34,6 @@ class TransactionClassification <<Entity>>{
     description: String
     *name: String <<UNIQUE-1>>
     *household_id: UUID <<FK>> <<UNIQUE-1>>
-
 }
 
 class Transaction <<Entity>>{
@@ -41,10 +42,10 @@ class Transaction <<Entity>>{
     *amount: Float
     *effect: TransactionEffect
     *date: LocalDateTime
-    image: Blob?
+    bill_image: Blob?
     *classification: TransactionClassification <<FK>>
     *household_id: UUID <<FK>>
-
+    *transaction_date: LocalDateTime
 }
 
 class Transaction_Household {
