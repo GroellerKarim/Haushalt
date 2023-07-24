@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -14,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 
 @Embeddable
-public class UserHouseholdCompositeKey  {
+public class UserHouseholdCompositeKey implements Serializable {
 
     private UUID householdId;
     private UUID userId;
